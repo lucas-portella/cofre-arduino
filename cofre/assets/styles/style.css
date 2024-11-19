@@ -1,0 +1,150 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+    background-color: lightgray;
+    font-family: Arial, Helvetica, sans-serif;
+	 display: flex;
+	 flex-flow: column nowrap;
+	 align-items: center;
+	 justify-content: center;
+}
+
+h1 {
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+}
+
+
+table {
+    width: 75%;
+    margin: 20px auto;
+}
+
+th {
+    height: 30px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: colapse;
+    text-align: center;
+}
+
+.negado {
+	background-color: red;
+	color: white;
+}
+
+.permitido {
+	background-color: green;
+	color: white;
+}
+
+nav > a {
+	text-decoration: none;
+	text-align: center;
+	font-size: 14px;
+	width: 200px;
+	margin: 50px;
+	padding: 10px;
+	background-color: gray;
+	color: white;
+	border-radius: 10px;
+}
+
+nav > a:hover {
+	background-color: white;
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+nav {
+	display: flex;
+	justify-content: center;
+}
+
+form {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-top: 100px;
+	background-color: white;
+	border-radius: 10px;
+	width: 450px;
+	overflow-x: auto;
+	box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+
+form > p {
+	font-size: 20px;
+	margin-top: 10px;	
+}
+
+form > div {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: flex-start;
+	flex-grow: 1;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+form > div > input {
+	height: 20px;
+	width: 300px;
+	margin-top: 10px;
+	border: 1px solid black;
+}
+
+form > input {
+	overflow-x: auto;
+	width: 300px;
+	margin: 10px;
+	border: 1px solid black;
+	background-color: lightgray;
+	color: black;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+form > a {
+	background-color: lightgray;
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+	height: 20px;
+	width: 300px;
+	margin: 10px;
+	border: 1px solid black;
+	font-size: 16px;
+	text-align: center;
+	color: black;
+	padding: 5px;
+}
+
+div .post {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-top: 100px;
+	background-color: white;
+	border-radius: 10px;
+	width: 450px;
+	overflow-x: auto;
+	box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
