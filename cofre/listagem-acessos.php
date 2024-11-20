@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
+    header('Location: login.php');
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,8 +20,8 @@
 	
 	<?php
 
-			function imprime_cabecalho () {
-				echo 
+		function imprime_cabecalho() {
+			echo 
 			"<table>
 				<tr>
 					<th>Data</th>
@@ -20,36 +29,34 @@
 					<th>Usuário</th>
 					<th>Acesso</th>
 				</tr>";
-			}
+		}
 
-			$file_path = "logs/logs.csv";
-		
-			if (!file_exists($file_path)) {
-				echo "<h2>Sem registro de acessos.</h2>";
-				exit;	
-			}
+		$file_path = "logs/logs.csv";
+	
+		if (!file_exists($file_path)) {
+			echo "<h2>Sem registro de acessos.</h2>";
+			exit;	
+		}
 
-			$file_content = file($file_path);
-			if ($file_content) {
-				imprime_cabecalho();
-				foreach ($file_content as $register) {
-					$itens = explode (",", $register);
-					foreach ($itens as $item ) {
-						if (strcmp($item, "permitido\n") == 0) 
-							echo "<td class=\"permitido\">".$item."</td>";
-						else {
-							if (strcmp($item, "negado\n") == 0)
-								echo "<td class=\"negado\">".$item."</td>";
-							else
-								echo "<td>".$item."</td>";
-						}
+		$file_content = file($file_path);
+		if ($file_content) {
+			imprime_cabecalho();
+			foreach ($file_content as $register) {
+				$itens = explode(",", $register);
+				foreach ($itens as $item) {
+					if (strcmp($item, "permitido\n") == 0) 
+						echo "<td class=\"permitido\">".$item."</td>";
+					else {
+						if (strcmp($item, "negado\n") == 0)
+							echo "<td class=\"negado\">".$item."</td>";
+						else
+							echo "<td>".$item."</td>";
 					}
-					echo "</tr>";
 				}
-				echo "</table>";	
+				echo "</tr>";
 			}
-			
-			
+			echo "</table>";	
+		}
 	?>
 	<nav>
 		<a href="logs/logs.csv" download>Download do arquivo em CSV</a>

@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
+    header('Location: login.php'); 
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,7 +23,8 @@
 			<a href="listagem-acessos.php">Acessos</a>
 			<a href="formulario-cadastro.php">Cadastro de usuários</a>
 		</nav>
+		<p>Bem-vindo, <?= htmlspecialchars($_SESSION['username']); ?>!</p>
+		<a href="logout.php">Sair</a>
 	</div>
-	
 </body>
 </html>

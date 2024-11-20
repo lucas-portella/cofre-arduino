@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
+    header('Location: login.php'); 
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,36 +20,34 @@
 	
 	<?php
 
-			function imprime_cabecalho () {
-				echo 
+		function imprime_cabecalho() {
+			echo 
 			"<table>
 				<tr>
 					<th>Usuário</th>
 					<th>Senha</th>
 				</tr>";
-			}
+		}
 
-			$file_path = "users/users.csv";
-		
-			if (!file_exists($file_path)) {
-				echo "<h2>Sem registro de usuários.</h2>";
-				exit;	
-			}
+		$file_path = "users/users.csv";
+	
+		if (!file_exists($file_path)) {
+			echo "<h2>Sem registro de usuários.</h2>";
+			exit;	
+		}
 
-			$file_content = file($file_path);
-			if ($file_content) {
-				imprime_cabecalho();
-				foreach ($file_content as $register) {
-					echo "<tr>";
-					$itens = explode (",", $register);
-					foreach ($itens as $item) 
-						echo "<td>".$item."</td>";
-					echo "</tr>";
-				}
-				echo "</table>";	
+		$file_content = file($file_path);
+		if ($file_content) {
+			imprime_cabecalho();
+			foreach ($file_content as $register) {
+				echo "<tr>";
+				$itens = explode(",", $register);
+				foreach ($itens as $item) 
+					echo "<td>".$item."</td>";
+				echo "</tr>";
 			}
-			
-			
+			echo "</table>";	
+		}
 	?>
 	<nav>
 		<a href="users/users.csv" download>Download do arquivo em CSV</a>
