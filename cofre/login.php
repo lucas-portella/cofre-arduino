@@ -27,21 +27,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles/style.css">
     <title>Login</title>
 </head>
 <body>
-    <h1>Tela de Login</h1>
-    <?php if ($mensagem): ?>
-        <p style="color: red;"><?= $mensagem ?></p>
-    <?php endif; ?>
     <form method="POST" action="">
-        <label for="username">Usuário:</label>
-        <input type="text" id="username" name="username" required>
-        <br><br>
-        <label for="password">Senha:</label>
-        <input type="password" id="password" name="password" required>
-        <br><br>
-        <button type="submit">Entrar</button>
+        <h1>Tela de Login</h1>
+        <?php if ($mensagem): ?>
+            <p style="color: red;"><?= $mensagem ?></p>
+        <?php endif; ?>
+        <div>
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <input type="submit" value="Entrar">
     </form>
 </body>
 </html>
